@@ -1,0 +1,89 @@
+course_registration_system/
+│
+├── main.py
+│
+├── config/
+│   ├── db_config.py
+│   └── app_config.py
+│
+├── database/
+│   ├── schema.sql      source tao database + table
+│   └── seed_data.sql   du lieu mau
+│
+├── model/
+│   ├── entities/
+│   │   ├── user.py
+│   │   ├── student.py
+│   │   ├── instructor.py
+│   │   ├── administrator.py
+│   │   ├── course.py
+│   │   ├── course_section.py
+│   │   ├── registration.py
+│   │   ├── waitlist.py
+│   │   ├── registration_batch.py
+│   │   └── academic_configuration.py
+│   │
+│   ├── dao/
+│   │   ├── base_dao.py
+│   │   ├── user_dao.py
+│   │   ├── student_dao.py
+│   │   ├── instructor_dao.py
+│   │   ├── course_dao.py
+│   │   ├── registration_dao.py
+│   │   ├── waitlist_dao.py
+│   │   └── admin_dao.py
+│   │
+│   └── db_connection.py
+│
+├── controller/
+│   ├── auth_controller.py
+│   ├── student_controller.py
+│   ├── instructor_controller.py
+│   └── admin_controller.py
+│
+├── view/
+│   ├── common/
+│   │   ├── login_view.py
+│   │   ├── change_password_view.py
+│   │   └── base_view.py
+│   │
+│   ├── student/
+│   │   ├── student_dashboard.py
+│   │   ├── view_course_list.py
+│   │   ├── search_course_view.py
+│   │   ├── register_course_view.py
+│   │   ├── withdraw_course_view.py
+│   │   └── waitlist_status_view.py
+│   │
+│   ├── instructor/
+│   │   ├── instructor_dashboard.py
+│   │   ├── view_class_roster.py
+│   │   ├── export_roster_view.py
+│   │   └── override_request_view.py
+│   │
+│   └── admin/
+│       ├── admin_dashboard.py
+│       ├── manage_student_view.py
+│       ├── manage_course_view.py
+│       ├── manage_registration_batch_view.py
+│       ├── academic_config_view.py
+│       ├── cancel_under_enrolled_view.py
+│       └── bulk_import_export_view.py
+│
+├── utils/
+│   ├── validators.py
+│   ├── constants.py
+│   ├── session_manager.py
+│   └── helpers.py
+│
+├── tests/
+│   ├── unit/
+│   │   ├── test_student.py
+│   │   ├── test_course.py
+│   │   └── test_registration.py
+│   │
+│   └── integration/
+│       ├── test_registration_flow.py
+│       └── test_waitlist_flow.py
+│
+└── requirements.txt
