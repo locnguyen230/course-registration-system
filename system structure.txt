@@ -70,12 +70,6 @@ course_registration_system/
 │       ├── cancel_under_enrolled_view.py
 │       └── bulk_import_export_view.py
 │
-├── utils/
-│   ├── validators.py
-│   ├── constants.py
-│   ├── session_manager.py
-│   └── helpers.py
-│
 ├── tests/
 │   ├── unit/
 │   │   ├── test_student.py
