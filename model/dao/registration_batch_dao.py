@@ -29,3 +29,33 @@ class RegistrationBatchDAO:
         conn.close()
 
         return row   
+    
+    @staticmethod
+    def get_batch_id(student_id):
+        conn = DBConnection.get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute("""
+            SELECT
+                rb.batchID
+            FROM Student s
+            JOIN RegistrationBatch rb
+                ON s.yearLevel = rb.eligibleYearLevel
+            WHERE s.studentID = %s
+            AND rb.startTime <= NOW()
+            AND rb.endTime >= NOW()
+            ORDER BY rb.startTime DESC
+            LIMIT 1
+        """, (student_id,))
+
+        row = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        if row:
+            return row["batchID"]
+
+        return None
+
+

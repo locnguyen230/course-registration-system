@@ -7,7 +7,7 @@ class StudentDashboard(tk.Tk):
         super().__init__()
         self.user = user
         self.title("Student Dashboard")
-        self.geometry("700x400")
+        self.geometry("1000x400")
 
         tk.Label(self, text="Welcome Student", font=("Arial", 14)).pack(pady=5)
 
