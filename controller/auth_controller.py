@@ -2,7 +2,7 @@ import bcrypt
 from model.dao.user_dao import UserDAO
 from model.dao.student_dao import StudentDAO
 from model.dao.instructor_dao import InstructorDAO
-# from model.dao.admin_dao import AdminDAO
+from model.dao.admin_dao import AdminDAO
 
 
 class AuthController:
@@ -34,7 +34,9 @@ class AuthController:
         elif user["role"] == "INSTRUCTOR":
             instructor = InstructorDAO.get_instructor_by_user_id(user["userID"])
             user["instructorID"] = instructor["instructorID"]
-
+        elif user["role"] == "ADMIN":
+            admin = AdminDAO.get_admin_by_user_id(user["userID"])
+            user["adminID"] = admin["adminID"]
         return True, user
 
 
