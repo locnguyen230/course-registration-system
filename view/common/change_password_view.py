@@ -24,7 +24,7 @@ class ChangePasswordWindow(tk.Toplevel):
         old = self.old_pw.get()
         new = self.new_pw.get()
 
-        # 🔥 CALL CONTROLLER HERE
+        #  CALL CONTROLLER 
         success, msg = AuthController.change_password(
             self.user["userID"], old, new
         )

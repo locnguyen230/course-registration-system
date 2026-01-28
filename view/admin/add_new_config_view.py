@@ -15,18 +15,14 @@ class AddAcademicConfigView(tk.Toplevel):
         self.create_widgets()
 
     def create_widgets(self):
-        # ===============================
-        # TITLE
-        # ===============================
+  
         ttk.Label(
             self,
             text="Create Academic Configuration",
             font=("Arial", 14, "bold")
         ).pack(pady=10)
 
-        # ===============================
-        # FORM
-        # ===============================
+  
         form = ttk.Frame(self)
         form.pack(fill=tk.BOTH, expand=True, padx=20)
 
@@ -51,9 +47,7 @@ class AddAcademicConfigView(tk.Toplevel):
         self.policies_text = tk.Text(form, width=32, height=6)
         self.policies_text.grid(row=2, column=1, pady=5)
 
-        # ===============================
         # BUTTONS
-        # ===============================
         btn_frame = ttk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -71,9 +65,8 @@ class AddAcademicConfigView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
+ 
     # SAVE
-    # ===============================
     def save_config(self):
         academic_year = self.year_entry.get().strip()
         semester = self.semester_cb.get()

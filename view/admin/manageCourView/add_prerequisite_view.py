@@ -15,9 +15,7 @@ class AddPrerequisiteView(tk.Toplevel):
 
         self.create_widgets()
 
-    # ===============================
-    # UI
-    # ===============================
+  
     def create_widgets(self):
         ttk.Label(
             self,
@@ -41,7 +39,7 @@ class AddPrerequisiteView(tk.Toplevel):
         self.prereq_entry = ttk.Entry(form, width=30)
         self.prereq_entry.grid(row=1, column=1, pady=6)
 
-        # Buttons
+  
         btn_frame = ttk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -59,9 +57,7 @@ class AddPrerequisiteView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=6)
 
-    # ===============================
-    # ADD PREREQUISITE
-    # ===============================
+   
     def add_prerequisite(self):
         prereq_id = self.prereq_entry.get().strip()
 

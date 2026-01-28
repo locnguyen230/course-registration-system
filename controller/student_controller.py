@@ -57,9 +57,7 @@ class StudentController:
 
     def register_course(student_id, section_id, batch_id, prereq):
 
-        # ===============================
         # 1. HANDLE PREREQUISITE
-        # ===============================
         if prereq and str(prereq).strip().lower() not in ("none", "null"):
             prereq_list = [
                 p.strip()
@@ -73,9 +71,7 @@ class StudentController:
             if not RegistrationDAO.is_course_completed(student_id, course_id):
                 return False, f"Missing prerequisite: {course_id}"
 
-        # ===============================
         # 2. REGISTER
-        # ===============================
         reg_id = RegistrationDAO.generate_registration_id(
             student_id[:2]
         )

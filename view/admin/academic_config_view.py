@@ -10,9 +10,7 @@ class AcademicConfigView(tk.Toplevel):
         self.title("Configure Academic Information")
         self.geometry("1000x420")
 
-        # ===============================
         # ACADEMIC CONFIG TABLE
-        # ===============================
         columns = (
             "configID",
             "academicYear",
@@ -34,9 +32,7 @@ class AcademicConfigView(tk.Toplevel):
         # Load data
         self.load_academic_configs()
 
-        # ===============================
         # ACTION BUTTONS
-        # ===============================
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -54,9 +50,7 @@ class AcademicConfigView(tk.Toplevel):
             command=self.open_update_config
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
     # LOAD CONFIG LIST
-    # ===============================
     def load_academic_configs(self):
         self.academic_table.delete(*self.academic_table.get_children())
 
@@ -74,16 +68,12 @@ class AcademicConfigView(tk.Toplevel):
                 )
             )
 
-    # ===============================
     # CREATE
-    # ===============================
     def open_create_config(self):
         from view.admin.add_new_config_view import AddAcademicConfigView
         AddAcademicConfigView(self)
 
-    # ===============================
     # UPDATE
-    # ===============================
     def open_update_config(self):
         selected = self.academic_table.selection()
         if not selected:

@@ -12,9 +12,7 @@ class AddRegistrationBatchView(tk.Toplevel):
         self.geometry("420x350")
         self.resizable(False, False)
 
-        # ===============================
-        # FORM
-        # ===============================
+
         form = tk.Frame(self)
         form.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
 
@@ -44,9 +42,7 @@ class AddRegistrationBatchView(tk.Toplevel):
         self.year_combo.current(0)
         self.year_combo.grid(row=3, column=1, pady=5)
 
-        # ===============================
-        # BUTTONS
-        # ===============================
+      
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -60,9 +56,7 @@ class AddRegistrationBatchView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
-    # CREATE BATCH (DEMO)
-    # ===============================
+
     def create_batch(self):
         semester = self.semester_entry.get().strip()
         start_date = self.start_entry.get().strip()
@@ -94,7 +88,7 @@ class AddRegistrationBatchView(tk.Toplevel):
             )
             return
 
-        # 🔥 DEMO – sau này thay bằng controller
+        # call controller
         success = AdminController.add_registration_batch(
             semester,
             start_dt,

@@ -10,9 +10,6 @@ class ManageRegistrationBatchView(tk.Toplevel):
         self.title("Manage Registration Batches")
         self.geometry("1050x450")
 
-        # ===============================
-        # BATCH TABLE
-        # ===============================
         columns = (
             "batchID",
             "semester",
@@ -35,9 +32,6 @@ class ManageRegistrationBatchView(tk.Toplevel):
 
         self.load_batches()
 
-        # ===============================
-        # ACTION BUTTONS
-        # ===============================
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -51,14 +45,11 @@ class ManageRegistrationBatchView(tk.Toplevel):
             command=self.edit_batch
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
-    # LOAD BATCH LIST (DEMO DATA)
-    # ===============================
+
     def load_batches(self):
         self.batch_table.delete(*self.batch_table.get_children())
 
-        # 🔥 DEMO DATA
-        # Sau này thay bằng:
+        # call controller
         batches = AdminController.get_registration_batches()
 
 
@@ -75,17 +66,13 @@ class ManageRegistrationBatchView(tk.Toplevel):
                 )
             )
 
-    # ===============================
-    # CREATE BATCH
-    # ===============================
+
     def open_create_batch(self):
         from view.admin.add_registrationbatch_view import AddRegistrationBatchView
         AddRegistrationBatchView(self)
         
 
-    # ===============================
-    # EDIT BATCH
-    # ===============================
+
     def edit_batch(self):
         selected = self.batch_table.selection()
         if not selected:

@@ -15,9 +15,6 @@ class ManageCourseView(tk.Toplevel):
         self.create_widgets()
         self.load_courses()
 
-    # ===============================
-    # UI
-    # ===============================
     def create_widgets(self):
         ttk.Label(
             self,
@@ -25,7 +22,6 @@ class ManageCourseView(tk.Toplevel):
             font=("Arial", 14, "bold")
         ).pack(pady=10)
 
-        # ===== Course Table =====
         columns = (
             "courseID",
             "courseName",
@@ -57,7 +53,6 @@ class ManageCourseView(tk.Toplevel):
             fill=tk.BOTH, expand=True, padx=15, pady=10
         )
 
-        # ===== Action Buttons =====
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -89,9 +84,7 @@ class ManageCourseView(tk.Toplevel):
             command=self.open_edit_prerequisite
         ).grid(row=0, column=3, padx=6)
 
-    # ===============================
-    # LOAD COURSE LIST
-    # ===============================
+
     def load_courses(self):
         self.course_table.delete(*self.course_table.get_children())
 
@@ -118,9 +111,7 @@ class ManageCourseView(tk.Toplevel):
                 )
             )
 
-    # ===============================
-    # ACTION HANDLERS
-    # ===============================
+   
     def get_selected_course_id(self):
         selected = self.course_table.selection()
         if not selected:

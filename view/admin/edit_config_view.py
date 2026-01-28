@@ -17,9 +17,7 @@ class EditAcademicConfigView(tk.Toplevel):
         self.create_widgets()
         self.load_config_data()
 
-    # ===============================
-    # UI
-    # ===============================
+
     def create_widgets(self):
         ttk.Label(
             self,
@@ -73,9 +71,7 @@ class EditAcademicConfigView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
-    # LOAD DATA
-    # ===============================
+  
     def load_config_data(self):
         config = AdminController.get_academic_config_by_id(self.config_id)
 
@@ -95,9 +91,7 @@ class EditAcademicConfigView(tk.Toplevel):
 
         self.policies_text.insert("1.0", config["policies"])
 
-    # ===============================
-    # UPDATE
-    # ===============================
+ 
     def update_config(self):
         academic_year = self.year_entry.get().strip()
         semester = self.semester_cb.get()

@@ -12,9 +12,7 @@ class RegisterCourseWindow(tk.Toplevel):
         self.title("Register Course")
         self.geometry("760x400")
 
-        # ===============================
-        # REGISTRATION BATCH INFO
-        # ===============================
+  
         tk.Label(
             self,
             text=context_text,
@@ -28,9 +26,7 @@ class RegisterCourseWindow(tk.Toplevel):
             font=("Arial", 12, "bold")
         ).pack(pady=5)
 
-        # ===============================
-        # TABLE
-        # ===============================
+
         columns = (
             "sectionID",
             "courseName",
@@ -57,9 +53,7 @@ class RegisterCourseWindow(tk.Toplevel):
 
         self.table.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # ===============================
-        # BUTTON
-        # ===============================
+     
         tk.Button(
             self,
             text="Register",
@@ -69,14 +63,11 @@ class RegisterCourseWindow(tk.Toplevel):
 
         self.load_courses()
 
-    # ==================================================
-    # LOAD AVAILABLE COURSES
-    # ==================================================
+
     def load_courses(self):
         self.table.delete(*self.table.get_children())
 
-        # 🔥 DEMO DATA
-        # SAU NÀY THAY BẰNG:
+        # call controller
         courses = StudentController.get_available_courses(self.user["studentID"])
 
 
@@ -97,9 +88,8 @@ class RegisterCourseWindow(tk.Toplevel):
                 )
             )
 
-    # ==================================================
+   
     # UC-S3 – REGISTER COURSE
-    # ==================================================
     def handle_register(self):
         selected = self.table.selection()
         if not selected:
@@ -112,9 +102,9 @@ class RegisterCourseWindow(tk.Toplevel):
         item = self.table.item(selected[0])
         section_id, course_name, prereq, available = item["values"]
 
-        # ===============================
+      
         # CASE 1: COURSE FULL → WAITLIST
-        # ===============================
+       
         if str(available).upper() == "FULL":
             join = messagebox.askyesno(
                 "Course Full",
@@ -122,7 +112,7 @@ class RegisterCourseWindow(tk.Toplevel):
             )
 
             if join:
-                # 🔥 CONTROLLER CALL
+                
                 StudentController.join_waitlist(
                     self.user["studentID"],
                     section_id
@@ -134,10 +124,8 @@ class RegisterCourseWindow(tk.Toplevel):
                 )
             return
 
-        # ===============================
+    
         # CASE 2: AVAILABLE → REGISTER
-        # ===============================
-        # 🔥 CONTROLLER CALL
         success, msg = StudentController.register_course(
             self.user["studentID"],
             section_id,

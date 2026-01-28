@@ -13,9 +13,7 @@ class ImportAcademicConfigView(tk.Toplevel):
 
         self.create_widgets()
 
-    # ===============================
-    # UI
-    # ===============================
+
     def create_widgets(self):
         ttk.Label(
             self,
@@ -23,7 +21,7 @@ class ImportAcademicConfigView(tk.Toplevel):
             font=("Arial", 14, "bold")
         ).pack(pady=10)
 
-        # ===== Instruction =====
+ 
         instruction = (
             "Please enter the full file path to the CSV file.\n"
             "Example file path:\n"
@@ -42,7 +40,7 @@ class ImportAcademicConfigView(tk.Toplevel):
             justify="left"
         ).pack(padx=15, pady=10)
 
-        # ===== File path input =====
+  
         form = ttk.Frame(self)
         form.pack(padx=20, pady=10, fill=tk.X)
 
@@ -50,7 +48,7 @@ class ImportAcademicConfigView(tk.Toplevel):
         self.file_entry = ttk.Entry(form, width=45)
         self.file_entry.grid(row=0, column=1, pady=5)
 
-        # ===== Buttons =====
+    
         btn_frame = ttk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -68,9 +66,6 @@ class ImportAcademicConfigView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=8)
 
-    # ===============================
-    # IMPORT ACTION
-    # ===============================
     def import_file(self):
         file_path = self.file_entry.get().strip()
 

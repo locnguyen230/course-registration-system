@@ -19,21 +19,16 @@ class AdminDashboard(tk.Tk):
             font=("Arial", 14)
         ).pack(pady=5)
 
-        # ===============================
-        # DEMO OVERVIEW DATA (UC-A10)
-        # ===============================
+   
+        #  OVERVIEW DATA (UC-A10)
         overview_stats = AdminController.get_overview()
-        # ===============================
-        # OVERVIEW CHART (TOP)
-        # ===============================
+  
         chart_frame = tk.Frame(self)
         chart_frame.pack(fill=tk.BOTH, expand=True)
 
         self.draw_overview_chart(chart_frame, overview_stats)
 
-        # ===============================
-        # ACTION BUTTONS (BOTTOM)
-        # ===============================
+
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=20)
 
@@ -65,9 +60,7 @@ class AdminDashboard(tk.Tk):
             command=self.bulk_export
         ).grid(row=1, column=2, padx=6, pady=8)
 
-    # ===============================
-    # BAR CHART – SYSTEM OVERVIEW
-    # ===============================
+
     def draw_overview_chart(self, parent, data):
         fig = Figure(figsize=(10, 4))
         ax = fig.add_subplot(111)
@@ -80,9 +73,7 @@ class AdminDashboard(tk.Tk):
         canvas.draw()
         canvas.get_tk_widget().pack(pady=20)
 
-    # ===============================
-    # OPEN UC WINDOWS
-    # ===============================
+
     def open_manage_students(self):
         from view.admin.manage_student_view import ManageStudentView
         ManageStudentView(self)

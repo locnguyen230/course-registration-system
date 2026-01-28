@@ -10,9 +10,7 @@ class ManageStudentView(tk.Toplevel):
         self.title("Manage Students")
         self.geometry("850x450")
 
-        # ===============================
-        # STUDENT TABLE
-        # ===============================
+
         columns = ("studentID", "username", "fullName")
 
         self.student_table = ttk.Treeview(
@@ -27,9 +25,7 @@ class ManageStudentView(tk.Toplevel):
 
         self.load_students()
 
-        # ===============================
-        # ACTION BUTTONS
-        # ===============================
+   
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -48,9 +44,7 @@ class ManageStudentView(tk.Toplevel):
             command=self.delete_student
         ).grid(row=0, column=2, padx=5)
 
-    # ===============================
-    # LOAD STUDENT LIST (DEMO)
-    # ===============================
+
     def load_students(self):
         self.student_table.delete(*self.student_table.get_children())
 
@@ -62,16 +56,12 @@ class ManageStudentView(tk.Toplevel):
                 values=(s["studentID"], s["username"], s["fullName"])
             )
 
-    # ===============================
-    # ADD STUDENT
-    # ===============================
+  
     def open_add_student(self):
         from view.admin.add_student_view import AddStudentView
         AddStudentView(self).mainloop()
 
-    # ===============================
-    # EDIT STUDENT
-    # ===============================
+ 
     def edit_student(self):
         selected = self.student_table.selection()
         if not selected:
@@ -85,9 +75,7 @@ class ManageStudentView(tk.Toplevel):
         from view.admin.edit_student_view import EditStudentView
         EditStudentView(self, student_id)
 
-    # ===============================
-    # DELETE STUDENT
-    # ===============================
+  
     def delete_student(self):
         selected = self.student_table.selection()
         if not selected:

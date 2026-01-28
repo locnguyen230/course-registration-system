@@ -11,13 +11,10 @@ class AddStudentView(tk.Toplevel):
         self.geometry("420x420")
         self.resizable(False, False)
 
-        # ===============================
-        # FORM FRAME
-        # ===============================
         form = tk.Frame(self, padx=20, pady=15)
         form.pack(fill="both", expand=True)
 
-        # -------- USER INFO ----------
+
         tk.Label(form, text="Username").grid(row=0, column=0, sticky="w")
         self.username_entry = tk.Entry(form, width=30)
         self.username_entry.grid(row=0, column=1, pady=5)
@@ -26,7 +23,6 @@ class AddStudentView(tk.Toplevel):
         self.password_entry = tk.Entry(form, width=30, show="*")
         self.password_entry.grid(row=1, column=1, pady=5)
 
-        # -------- STUDENT INFO ----------
         tk.Label(form, text="Full Name").grid(row=2, column=0, sticky="w")
         self.fullname_entry = tk.Entry(form, width=30)
         self.fullname_entry.grid(row=2, column=1, pady=5)
@@ -55,9 +51,6 @@ class AddStudentView(tk.Toplevel):
         self.year_cb.grid(row=5, column=1, pady=5)
         self.year_cb.current(0)
 
-        # ===============================
-        # BUTTONS
-        # ===============================
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -75,9 +68,6 @@ class AddStudentView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
-    # ACTION
-    # ===============================
     def add_student(self):
         username = self.username_entry.get().strip()
         password = self.password_entry.get().strip()

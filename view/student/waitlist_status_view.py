@@ -17,9 +17,6 @@ class WaitlistWindow(tk.Toplevel):
             font=("Arial", 12, "bold")
         ).pack(pady=5)
 
-        # ===============================
-        # TABLE (WAITLIST)
-        # ===============================
         columns = (
             "sectionID",
             "courseID",
@@ -51,13 +48,10 @@ class WaitlistWindow(tk.Toplevel):
 
         self.load_waitlist()
 
-    # ==================================================
-    # UC-S5 – VIEW WAITLIST STATUS
-    # ==================================================
     def load_waitlist(self):
         self.table.delete(*self.table.get_children())
 
-        # 🔥 CONTROLLER CALL
+        #  CONTROLLER CALL
         waitlists = StudentController.view_waitlist_status(
             self.user["studentID"]
         )

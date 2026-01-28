@@ -13,16 +13,10 @@ class EditStudentView(tk.Toplevel):
         self.geometry("450x420")
         self.resizable(False, False)
 
-        # ===============================
-        # LOAD STUDENT DATA (DEMO)
-        # ===============================
-        # 👉 Sau này thay bằng:
+        # call controller
         student = AdminController.get_info_edit(student_id)
 
        
-        # ===============================
-        # FORM
-        # ===============================
         form = tk.Frame(self)
         form.pack(pady=15)
 
@@ -56,9 +50,6 @@ class EditStudentView(tk.Toplevel):
         self.academic_combo.set(student["academicStatus"])
         self.academic_combo.grid(row=5, column=1)
 
-        # ===============================
-        # BUTTON
-        # ===============================
         tk.Button(
             self,
             text="Update Student",

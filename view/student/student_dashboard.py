@@ -11,9 +11,7 @@ class StudentDashboard(tk.Tk):
 
         tk.Label(self, text="Welcome Student", font=("Arial", 14)).pack(pady=5)
 
-        # ===============================
         # UC-S2 – SEARCH COURSE
-        # ===============================
         search_frame = tk.Frame(self)
         search_frame.pack(fill="x", padx=10, pady=5)
 
@@ -27,9 +25,7 @@ class StudentDashboard(tk.Tk):
             command=self.search_course
         ).pack(side="left")
 
-        # ===============================
         # UC-S1 – VIEW COURSE LIST
-        # ===============================
         columns = ("courseID", "courseName", "credits", "available")
         self.course_table = ttk.Treeview(
             self, columns=columns, show="headings", height=8
@@ -44,9 +40,7 @@ class StudentDashboard(tk.Tk):
 
         self.load_course_list()
 
-        # ===============================
-        # EXISTING ACTION BUTTONS (GIỮ NGUYÊN)
-        # ===============================
+       
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -62,13 +56,12 @@ class StudentDashboard(tk.Tk):
         tk.Button(btn_frame, text="Change Password",
                   command=self.open_change_password).grid(row=0, column=3, padx=5)
 
-    # ==================================================
+   
     # UC-S1 – VIEW COURSE LIST
-    # ==================================================
     def load_course_list(self):
         self.course_table.delete(*self.course_table.get_children())
 
-        # 🔥 CONTROLLER CALL (bạn cài ở đây)
+    
         courses = StudentController.view_course_list()
 
       
@@ -78,9 +71,7 @@ class StudentDashboard(tk.Tk):
                 values=(c["courseID"], c["courseName"], c["credits"], c["available"])
             )
 
-    # ==================================================
     # UC-S2 – SEARCH COURSE
-    # ==================================================
     def search_course(self):
         keyword = self.search_entry.get().strip()
 
@@ -105,9 +96,7 @@ class StudentDashboard(tk.Tk):
             )
 
 
-    # ===============================
     # CÁC HÀM CŨ – GIỮ NGUYÊN
-    # ===============================
     def open_register(self):
         from controller.student_controller import StudentController
         from view.student.register_course_view import RegisterCourseWindow

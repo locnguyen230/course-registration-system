@@ -247,11 +247,11 @@ class AdminController:
                 file = open(file_path, "r", newline="", encoding=enc)
                 reader = csv.DictReader(file)
 
-                # 👉 FORCE đọc header để test decode
+               
                 if not reader.fieldnames:
                     raise UnicodeDecodeError(enc, b"", 0, 1, "Empty header")
 
-                break  # ✅ decode OK → thoát vòng lặp
+                break  
 
             except UnicodeDecodeError:
                 if file:

@@ -17,9 +17,8 @@ class InstructorDashboard(tk.Tk):
             font=("Arial", 14)
         ).pack(pady=5)
 
-        # ===============================
+   
         # UC-I1 – VIEW CLASS ROSTER (DEFAULT)
-        # ===============================
         columns = (
             "sectionID",
             "courseID",
@@ -44,9 +43,6 @@ class InstructorDashboard(tk.Tk):
 
         self.load_class_list()
 
-        # ===============================
-        # ACTION BUTTONS
-        # ===============================
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -68,9 +64,8 @@ class InstructorDashboard(tk.Tk):
             command=self.open_override_requests
         ).grid(row=0, column=2, padx=5)
 
-    # ==================================================
+   
     # UC-I1 – VIEW CLASS LIST (DEFAULT LOAD)
-    # ==================================================
     def load_class_list(self):
         self.class_table.delete(*self.class_table.get_children())
 
@@ -93,9 +88,8 @@ class InstructorDashboard(tk.Tk):
                 )
             )
 
-    # ==================================================
+   
     # UC-I1 – SHOW STUDENT LIST
-    # ==================================================
     def show_students(self):
         selected = self.class_table.selection()
         if not selected:
@@ -107,9 +101,7 @@ class InstructorDashboard(tk.Tk):
         from view.instructor.view_class_roster import StudentRosterView
         StudentRosterView(self, section_id)
 
-    # ==================================================
     # UC-I2 – EXPORT STUDENT ROSTER
-    # ==================================================
     def export_roster(self):
         selected = self.class_table.selection()
         if not selected:
@@ -126,9 +118,7 @@ class InstructorDashboard(tk.Tk):
         else:
             messagebox.showerror("Error", "Can not export!")
 
-    # ==================================================
     # UC-I3 – REVIEW OVERRIDE REQUESTS
-    # ==================================================
     def open_override_requests(self):
         from view.instructor.override_request_view import OverrideRequestView
         OverrideRequestView(self, self.user["instructorID"])

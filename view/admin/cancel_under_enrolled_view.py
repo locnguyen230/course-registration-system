@@ -16,9 +16,7 @@ class CancelUnderEnrolledView(tk.Toplevel):
         self.create_widgets()
         self.load_under_enrolled_sections()
 
-    # ===============================
-    # UI
-    # ===============================
+
     def create_widgets(self):
         ttk.Label(
             self,
@@ -38,7 +36,7 @@ class CancelUnderEnrolledView(tk.Toplevel):
             columns=columns,
             show="headings",
             height=12,
-            selectmode="browse"   # ✅ CHỈ CHO CHỌN 1 DÒNG
+            selectmode="browse"  
         )
 
         self.section_table.heading("sectionID", text="Section ID")
@@ -72,9 +70,6 @@ class CancelUnderEnrolledView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=8)
 
-    # ===============================
-    # LOAD DATA
-    # ===============================
     def load_under_enrolled_sections(self):
         self.section_table.delete(*self.section_table.get_children())
 
@@ -94,9 +89,7 @@ class CancelUnderEnrolledView(tk.Toplevel):
                 )
             )
 
-    # ===============================
-    # CANCEL ONE SECTION
-    # ===============================
+ 
     def cancel_selected_section(self):
         selected = self.section_table.selection()
 

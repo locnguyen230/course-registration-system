@@ -45,9 +45,7 @@ class InstructorController:
         if wl["status"] != "WAITING":
             return False, "Request already processed"
 
-        # ===============================
         # REJECT
-        # ===============================
         if status == "REMOVED":
             InstructorDAO.update_waitlist_status(
                 waitlist_id, "REMOVED"
@@ -59,9 +57,7 @@ class InstructorController:
 
             return True, "Request rejected"
         
-        # ===============================
         # APPROVE (OVERRIDE)
-        # ===============================
         if status == "APPROVED":
 
             batch_id = RegistrationBatchDAO.get_batch_id( wl["studentID"])

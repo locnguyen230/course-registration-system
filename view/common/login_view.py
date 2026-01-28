@@ -22,7 +22,7 @@ class LoginView(tk.Tk):
         username = self.username_entry.get()
         password = self.password_entry.get()
 
-        # 🔥 CALL CONTROLLER HERE
+        # CALL CONTROLLER 
         success, result = AuthController.authenticate(username, password)
 
   

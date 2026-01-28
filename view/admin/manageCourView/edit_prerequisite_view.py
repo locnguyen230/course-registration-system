@@ -16,9 +16,6 @@ class EditPrerequisiteView(tk.Toplevel):
         self.create_widgets()
         self.load_prerequisites()
 
-    # ===============================
-    # UI
-    # ===============================
     def create_widgets(self):
         ttk.Label(
             self,
@@ -55,18 +52,14 @@ class EditPrerequisiteView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=6)
 
-    # ===============================
-    # LOAD DATA
-    # ===============================
+
     def load_prerequisites(self):
         prereqs = AdminController.get_prerequisites_by_course(self.course_id)
 
         prereq_text = ", ".join(prereqs) if prereqs else ""
         self.prereq_entry.insert(0, prereq_text)
 
-    # ===============================
-    # SAVE
-    # ===============================
+ 
     def save_prerequisites(self):
         prereq_text = self.prereq_entry.get().strip()
 

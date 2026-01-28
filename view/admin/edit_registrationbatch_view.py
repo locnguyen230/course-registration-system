@@ -14,16 +14,10 @@ class EditRegistrationBatchView(tk.Toplevel):
         self.geometry("420x350")
         self.resizable(False, False)
 
-        # ===============================
-        # LOAD DEMO DATA
-        # ===============================
-        # Sau này thay bằng:
+        # call controller
         batch = AdminController.get_batch_by_id(batch_id)
         
 
-        # ===============================
-        # FORM
-        # ===============================
         form = tk.Frame(self)
         form.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
 
@@ -56,9 +50,7 @@ class EditRegistrationBatchView(tk.Toplevel):
         self.year_combo.set(batch["eligibleYearLevel"])
         self.year_combo.grid(row=3, column=1, pady=5)
 
-        # ===============================
-        # BUTTONS
-        # ===============================
+      
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=15)
 
@@ -72,9 +64,7 @@ class EditRegistrationBatchView(tk.Toplevel):
             command=self.destroy
         ).grid(row=0, column=1, padx=5)
 
-    # ===============================
-    # UPDATE BATCH (DEMO)
-    # ===============================
+  
     def update_batch(self):
         semester = self.semester_entry.get().strip()
         start_date = self.start_entry.get().strip()
@@ -105,7 +95,7 @@ class EditRegistrationBatchView(tk.Toplevel):
             )
             return
 
-        # 🔥 DEMO – sau này thay bằng controller
+        # call controller
         success = AdminController.update_registration_batch(
             self.batch_id,
             semester,

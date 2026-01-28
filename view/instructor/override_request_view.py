@@ -17,9 +17,6 @@ class OverrideRequestView(tk.Toplevel):
             font=("Arial", 12, "bold")
         ).pack(pady=10)
 
-        # ===============================
-        # TABLE
-        # ===============================
         columns = (
             "waitlistID",
             "studentID",
@@ -52,9 +49,7 @@ class OverrideRequestView(tk.Toplevel):
 
         self.table.pack(fill=tk.BOTH, expand=True, padx=10)
 
-        # ===============================
-        # BUTTONS
-        # ===============================
+   
         btn_frame = tk.Frame(self)
         btn_frame.pack(pady=10)
 
@@ -74,9 +69,7 @@ class OverrideRequestView(tk.Toplevel):
 
         self.load_requests()
 
-    # ==================================================
-    # LOAD WAITLIST / OVERRIDE REQUESTS
-    # ==================================================
+
     def load_requests(self):
         self.table.delete(*self.table.get_children())
 
@@ -98,9 +91,8 @@ class OverrideRequestView(tk.Toplevel):
                 )
             )
 
-    # ==================================================
+   
     # APPROVE / REJECT
-    # ==================================================
     def update_status(self, status):
         selected = self.table.selection()
         if not selected:

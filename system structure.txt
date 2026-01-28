@@ -7,24 +7,12 @@ course_registration_system/
 │   └── app_config.py
 │
 ├── database/
-│   ├── schema.sql      source tao database + table
-│   └── seed_data.sql   du lieu mau
+│   ├── schema.sql     
+│   └── seed_data.sql  
 │
 ├── model/
-│   ├── entities/
-│   │   ├── user.py
-│   │   ├── student.py
-│   │   ├── instructor.py
-│   │   ├── administrator.py
-│   │   ├── course.py
-│   │   ├── course_section.py
-│   │   ├── registration.py
-│   │   ├── waitlist.py
-│   │   ├── registration_batch.py
-│   │   └── academic_configuration.py
-│   │
+|   |
 │   ├── dao/
-│   │   ├── base_dao.py
 │   │   ├── user_dao.py
 │   │   ├── student_dao.py
 │   │   ├── instructor_dao.py
@@ -45,7 +33,7 @@ course_registration_system/
 │   ├── common/
 │   │   ├── login_view.py
 │   │   ├── change_password_view.py
-│   │   └── base_view.py
+│   │   
 │   │
 │   ├── student/
 │   │   ├── student_dashboard.py
@@ -70,14 +58,5 @@ course_registration_system/
 │       ├── cancel_under_enrolled_view.py
 │       └── bulk_import_export_view.py
 │
-├── tests/
-│   ├── unit/
-│   │   ├── test_student.py
-│   │   ├── test_course.py
-│   │   └── test_registration.py
-│   │
-│   └── integration/
-│       ├── test_registration_flow.py
-│       └── test_waitlist_flow.py
 │
-└── requirements.txt
+

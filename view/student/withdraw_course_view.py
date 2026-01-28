@@ -12,7 +12,7 @@ class WithdrawCourseWindow(tk.Toplevel):
 
         tk.Label(self, text="Registered Courses", font=("Arial", 12, "bold")).pack(pady=5)
 
-        # ===== TABLE =====
+ 
         columns = ( "sectionID", "courseName", "registrationDate")
 
         self.table = ttk.Treeview(
@@ -32,7 +32,7 @@ class WithdrawCourseWindow(tk.Toplevel):
 
         self.table.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # ===== DEMO DATA =====
+   
         self.load_registered_courses()
 
         tk.Button(

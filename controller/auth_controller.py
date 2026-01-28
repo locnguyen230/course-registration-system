@@ -7,9 +7,7 @@ from model.dao.admin_dao import AdminDAO
 
 class AuthController:
 
-    # =========================
     # AUTHENTICATE USER
-    # =========================
     @staticmethod
     def authenticate(username, password):
         user = UserDAO.find_by_username(username)
@@ -40,9 +38,7 @@ class AuthController:
         return True, user
 
 
-    # =========================
     # CHANGE PASSWORD (UC-S7)
-    # =========================
     @staticmethod
     def change_password(user_id, old_password, new_password):
         user = UserDAO.find_by_id(user_id)
