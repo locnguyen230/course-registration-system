@@ -51,6 +51,19 @@ class AdminDashboard(tk.Tk):
 
         tk.Button(btn_frame, text="Cancel Classes", width=22,
                   command=self.open_cancel_class).grid(row=0, column=4, padx=6)
+        tk.Button(
+            btn_frame,
+            text="Bulk Import Data",
+            width=22,
+            command=self.bulk_import
+        ).grid(row=1, column=1, padx=6, pady=8)
+
+        tk.Button(
+            btn_frame,
+            text="Bulk Export Data",
+            width=22,
+            command=self.bulk_export
+        ).grid(row=1, column=2, padx=6, pady=8)
 
     # ===============================
     # BAR CHART – SYSTEM OVERVIEW
@@ -76,9 +89,8 @@ class AdminDashboard(tk.Tk):
 
         
     def open_manage_courses(self):
-        # from view.admin.manage_course_view import ManageCourseView
-        # ManageCourseView(self)
-        messagebox.showinfo("Success","managecourse")
+        from view.admin.manage_course_view import ManageCourseView
+        ManageCourseView(self)
 
 
     def open_batches(self):
@@ -89,7 +101,19 @@ class AdminDashboard(tk.Tk):
     def open_academic(self):
         from view.admin.academic_config_view import AcademicConfigView
         AcademicConfigView(self)
+
     def open_cancel_class(self):
-        # from view.admin.cancel_under_enrolled_view import CancelUnderEnrolledView
-        # CancelUnderEnrolledView(self)
-        messagebox.showinfo("Success","opencancel class")
+        from view.admin.cancel_under_enrolled_view import CancelUnderEnrolledView
+        CancelUnderEnrolledView(self)
+
+    def bulk_import(self):
+        from view.admin.bulk_import_view import ImportAcademicConfigView
+        ImportAcademicConfigView(self)
+
+
+    def bulk_export(self):
+        success, file_path = AdminController.export_overview_stats()
+        if success:
+            messagebox.showinfo("Success", file_path)
+        else:
+            messagebox.showerror("Error","Export faild")

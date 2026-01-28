@@ -170,3 +170,7 @@ CHECK (enrolledCount >= 0),
 -- Enrolled students must not exceed section capacity
 ADD CONSTRAINT chk_enrolled_not_exceed_capacity
 CHECK (enrolledCount <= capacity);
+
+ALTER TABLE CourseSection
+ADD CONSTRAINT chk_section_status
+CHECK (status IN ('OPENING', 'CANCELED'));

@@ -348,6 +348,7 @@ class AdminDAO:
             cursor.close()
             conn.close()
 
+    @staticmethod
     def get_config_by_id(config_id):
         conn = DBConnection.get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -364,3 +365,54 @@ class AdminDAO:
         conn.close()
 
         return config
+    
+    @staticmethod
+    def get_class():
+        conn = DBConnection.get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        try:
+            cursor.execute("""
+                SELECT
+                    cs.sectionID,
+                    c.courseName,
+                    cs.enrolledCount,
+                    cs.capacity,
+                    cs.instructorID
+                FROM CourseSection cs
+                JOIN Course c
+                    ON cs.courseID = c.courseID
+                WHERE cs.enrolledCount < cs.capacity
+                AND cs.status = 'OPENING'
+            """)
+
+            return cursor.fetchall()
+
+        finally:
+            cursor.close()
+            conn.close()
+
+    @staticmethod
+    def cancel_class(section_id, status):
+        conn = DBConnection.get_connection()
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute("""
+                UPDATE CourseSection
+                SET status = %s
+                WHERE sectionID = %s
+            """, (status, section_id))
+
+            conn.commit()
+
+            return cursor.rowcount > 0
+
+        except Exception as e:
+            conn.rollback()
+            print(e)
+            return False
+
+        finally:
+            cursor.close()
+            conn.close()
